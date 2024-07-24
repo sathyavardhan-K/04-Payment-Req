@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="app.css" />
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.0.1/dist/css/tom-select.css" rel="stylesheet">
+  <title>Payment_Request</title>
+</head>
+<body>
+  
+  <!-- <div class="border-4 border-violet-300 mt-10 ml-40 mr-60 p-5">
+    <h1 class="text-3xl font-bold">Payment Request</h1>
+    <h2 class="text-xl mt-4">Contact Details</h2>
+    <p class="mt-2">Send Payment Request to</p>
+    <select name="user-list" id="userList" multiple class="w-full mt-4"></select>
+    <div class="mt-4 grid grid-cols-2 gap-4">
+      <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+          <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+      </div>
+      <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+      </div>
+    </div>
+    
+    <button id="send-email" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Email</button>
+    </div> -->
+
+    <div class="grid grid-cols-2">
+      <div class="col-span-1">
+          <!-- Content for the first column (left side) -->
+          <!-- Your content here -->
+      </div>
+      <div class="col-span-1 flex items-center justify-end">
+          <!-- Content for the second column (right side) -->
+          <h1 id="myname" class="mt-2 mr-4 text-right font-bold text-xl"></h1>
+          <img src="" alt="avatar" id="avatar" class="mt-2 mr-3 rounded-full" width="35px" height="35px">
+      </div>
+  </div>
+  
+   
+    
+   
+    <div class="border-4 border-violet-300 mt-10 mx-auto p-4 w-1/2">
+      <h1 class="text-3xl font-bold">Payment Request</h1>
+      <h2 class="text-xl mt-4">Contact Details</h2>
+      <p class="mt-2">Send Payment Request to</p>
+      <select name="user-list" id="userList" multiple class="w-full mt-4">
+        <option value="" disabled selected hidden>Select a Name</option>
+      </select>
+      <div class="mt-4 grid grid-cols-2 gap-4">
+          <div>
+              <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+              <input type="text" id="name" name="name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+          </div>
+          <div>
+              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+              <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+          </div>
+      </div>
+      <h2 class="text-xl mt-4">Request Details</h2>
+      <div class="mt-4 grid grid-cols-2 gap-4">
+        <div>
+            <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+            <div class="flex mt-1">
+                <select id="currency" name="currency" class="px-2 py-2 border border-gray-300 rounded-l-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="USD">$</option>
+                    <option value="INR">₹</option>
+                </select>
+                <input type="number" id="amount" name="amount" min="0" class="block w-full px-3 py-2 border border-gray-300 rounded-r-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+            </div>
+        </div>
+        <div>
+          <label for="due-date" class="block text-sm font-medium text-gray-700">Due Date</label>
+          <input type="date" id="due-date" name="due-date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+          <div id="formatted-date" class="mt-2 text-sm font-medium text-gray-700"></div>
+          
+          <p id="days-difference" class="mt-1 text-sm text-gray-500"></p>
+      </div>
+    </div>
+    <div>
+      <label for="company" class="block text-sm font-medium text-gray-700 mt-1">Company name to show on request</label>
+      <select id="company" name="company" class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+          <option value="" disabled selected hidden>Select a Company</option>
+          <option value="GWC">GWC Data.ai</option>
+          <option value="DOMO">DOMO</option>
+      </select>
+  </div>
+  <div>
+    <label for="destination-account" class="block text-sm font-medium text-gray-700 mt-1">Destination Account</label>
+    <select id="destination-account" name="destination-account" class="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+        <option value="" disabled selected hidden>Select a Destination Account</option>
+        <option value="hdfc">HDFC:12fgqrpomn8541</option>
+        <option value="federal">Federal:10tyoipgneonvv245</option>
+    </select>
+</div>
+
+
+    <p class="text-gray-400 mt-3">Incoming payments are placed in a secure receiving account to keep destination account details anonymous.</p>
+
+      
+      <button id="send-email" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Send Email</button>
+  </div>  
+ 
+   
+
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.0.1/dist/js/tom-select.complete.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/domojs@0.9.8/dist/domo.min.js"></script>
+  <script src="https://unpkg.com/ryuu.js"></script>
+  <script src="app.js"></script>
+  
+</body>
+</html>
